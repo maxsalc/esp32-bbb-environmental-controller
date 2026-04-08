@@ -45,7 +45,7 @@ On the BeagleBone Black:
 
 Then open:
 
-http://<bbb-ip>:5000
+http://[bbb-ip]:5000
 
 ## Example data
 
