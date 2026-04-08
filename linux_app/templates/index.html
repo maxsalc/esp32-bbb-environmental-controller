@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="5">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environmental Control Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 32px;
+      background: #e7066f;
+      color: #d8a4a4;
+    }
+
+    .card {
+      max-width: 900px;
+      background: white;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    .row {
+      margin: 12px 0;
+      font-size: 18px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .empty {
+      color: #666;
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      color: #222;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    th {
+      background: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Max's Room</h1>
+
+    {% if latest %}
+      <div class="row"><span class="label">Last Update:</span> {{ latest.timestamp }}</div>
+      <div class="row"><span class="label">Temperature:</span> {{ latest.temp_f }} °F</div>
+      <div class="row"><span class="label">Humidity:</span> {{ latest.humidity }} %</div>
+      <div class="row"><span class="label">Fan State:</span> {{ latest.fan }}</div>
+      <div class="row"><span class="label">System State:</span> {{ latest.state }}</div>
+
+      <h2>Recent Readings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Temp (°F)</th>
+            <th>Humidity (%)</th>
+            <th>Fan</th>
+            <th>State</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in recent_rows %}
+          <tr>
+            <td>{{ row.timestamp }}</td>
+            <td>{{ row.temp_f }}</td>
+            <td>{{ row.humidity }}</td>
+            <td>{{ row.fan }}</td>
+            <td>{{ row.state }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="empty">No data available yet.</div>
+    {% endif %}
+  </div>
+</body>
+</html>
