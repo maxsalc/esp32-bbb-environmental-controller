@@ -58,11 +58,6 @@ timestamp,temp_f,humidity,fan,state
 
 The fan is controlled by physically pressing the remote, not by wiring into the fan itself. Communication between devices is done over UART, and the web page refreshes automatically to show the latest data.
 
-## Limitations
-
-- No error checking on UART data  
-- Fan state is assumed, not measured  
-- Manual startup (no auto-run on boot)  
 
 ## Possible improvements
 
