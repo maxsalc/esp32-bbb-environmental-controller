@@ -54,14 +54,3 @@ The system logs data in CSV format:
 timestamp,temp_f,humidity,fan,state  
 2026-04-03 22:25:49,77.36,48.10,OFF,MONITORING  
 
-## Notes
-
-The fan is controlled by physically pressing the remote, not by wiring into the fan itself. Communication between devices is done over UART, and the web page refreshes automatically to show the latest data.
-
-
-## Possible improvements
-
-- Send commands from BBB back to ESP32  
-- Add error handling / data validation  
-- Set up automatic startup on boot  
-- Improve the web interface  
